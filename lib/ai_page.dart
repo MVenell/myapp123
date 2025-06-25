@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AiPage extends StatelessWidget {
-  const AiPage({Key? key}) : super(key: key);
+  const AiPage({super.key});
 
   @override
   Widget build(BuildContext context) {
