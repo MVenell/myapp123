@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:myapp/ai_page.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
 }
 
 class LandingPage extends StatefulWidget {
-  const LandingPage({Key? key}) : super(key: key);
+  const LandingPage({super.key});
   @override
   State<LandingPage> createState() => _LandingPageState();
 }
@@ -47,13 +48,16 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ChatGPT Destroyer'),
+      appBar: AppBar(title: 
+        Image.asset(
+ 'assets/app-logo.png',
+          height: 40, // Adjust the height as needed
+        ),
  backgroundColor: Theme.of(context).colorScheme.primaryContainer,
  elevation: 0,
       ),
       body: Container(
- color: Theme.of(context).colorScheme.background,
+ color: Theme.of(context).colorScheme.surface,
  padding: const EdgeInsets.all(16.0),
         alignment: Alignment.center,
         child: Column(
@@ -71,9 +75,21 @@ class _LandingPageState extends State<LandingPage> {
           children: <Widget>[
             Text(
  'Welcome to ChatGPT Destroyer',
- style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: Theme.of(context).colorScheme.onBackground),
+ style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: Theme.of(context).colorScheme.onSurface),
  textAlign: TextAlign.center,
             ),
+            const SizedBox(height: 40), // Add some space between the text and the button
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AiPage()),
+                );
+              },
+              child: const Text('Test for Free'),
+            ),
+
+
           ],
         ),
       )
